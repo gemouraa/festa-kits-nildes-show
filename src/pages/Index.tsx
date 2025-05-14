@@ -82,7 +82,7 @@ const Index = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="max-w-4xl"
+          className="max-w-3xl"
         >
           <motion.div 
             className="mb-6 flex justify-center"
@@ -90,7 +90,7 @@ const Index = () => {
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 1.2, type: "spring", stiffness: 100 }}
           >
-            <div className="relative w-full max-w-md">
+            <div className="relative w-full max-w-xs">
               <img 
                 src="/lovable-uploads/92ff1ab1-5c2d-43bd-861c-86a50f75be1f.png" 
                 alt="Nildes Festas" 
@@ -108,7 +108,7 @@ const Index = () => {
           </motion.div>
 
           <div className="mb-8">
-            <div className="text-5xl font-extrabold tracking-tight text-sky-400 md:text-6xl lg:text-7xl font-playfair mb-2">
+            <div className="text-5xl font-extrabold tracking-tight text-sky-400 md:text-6xl lg:text-7xl font-poppins mb-2">
               {welcomeVisible && (
                 <div className="overflow-hidden">
                   <TextReveal text="Nildes Festas" delay={0.2} />
@@ -120,7 +120,7 @@ const Index = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1.2, delay: 0.5 }}
-                className="text-lg text-gray-600 md:text-xl"
+                className="text-lg text-gray-600 md:text-xl font-poppins"
               >
                 <TextReveal text="Onde cada detalhe é feito com carinho!" delay={0.4} />
               </motion.p>
@@ -162,7 +162,7 @@ const Index = () => {
                 activeSection === "kits" 
                   ? "bg-purple-500 hover:bg-purple-600" 
                   : "bg-sky-400 hover:bg-sky-500"
-              } text-white hover:-translate-y-1 hover:shadow-lg rounded-full`}
+              } text-white hover:-translate-y-1 hover:shadow-lg rounded-full font-poppins`}
             >
               {activeSection === "kits" ? "Voltar" : "Ver Kits Festas"}
             </Button>
@@ -173,7 +173,7 @@ const Index = () => {
                 activeSection === "about" 
                   ? "bg-purple-500 hover:bg-purple-600" 
                   : "bg-sky-400 hover:bg-sky-500"
-              } text-white hover:-translate-y-1 hover:shadow-lg rounded-full`}
+              } text-white hover:-translate-y-1 hover:shadow-lg rounded-full font-poppins`}
             >
               {activeSection === "about" ? "Voltar" : "Sobre Nós"}
             </Button>
@@ -198,7 +198,7 @@ const Index = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.2 }}
-                className="mb-12 text-3xl font-bold text-center text-purple-600 font-dancing"
+                className="mb-12 text-3xl font-bold text-center text-purple-600 font-poppins"
               >
                 Nossos Kits
               </motion.h2>
@@ -209,7 +209,7 @@ const Index = () => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.3 }}
-                  className="mb-6 text-2xl font-bold text-center text-purple-600 font-dancing"
+                  className="mb-6 text-2xl font-bold text-center text-purple-600 font-poppins"
                 >
                   Regras Gerais
                 </motion.h3>

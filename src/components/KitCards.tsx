@@ -13,7 +13,7 @@ const KitCard: React.FC<{ kit: any; index: number }> = ({ kit, index }) => {
 
   const handleWhatsAppClick = () => {
     const encodedMessage = encodeURIComponent(kit.whatsappMessage);
-    window.open(`https://wa.me/5521999999999?text=${encodedMessage}`, "_blank");
+    window.open(`https://wa.me/5571987679861?text=${encodedMessage}`, "_blank");
   };
 
   return (
@@ -37,10 +37,10 @@ const KitCard: React.FC<{ kit: any; index: number }> = ({ kit, index }) => {
             >
               <Sparkle className="w-6 h-6 text-yellow-300" />
             </motion.div>
-            <CardTitle className="text-xl font-bold text-center text-white font-dancing">{kit.name}</CardTitle>
+            <CardTitle className="text-xl font-bold text-center text-white font-poppins">{kit.name}</CardTitle>
           </CardHeader>
           <CardContent className="p-6">
-            <ul className="space-y-3">
+            <ul className="space-y-3 font-poppins">
               {kit.items.map((item: string, i: number) => (
                 <motion.li 
                   key={i} 
@@ -54,14 +54,14 @@ const KitCard: React.FC<{ kit: any; index: number }> = ({ kit, index }) => {
                 </motion.li>
               ))}
             </ul>
-            <CardDescription className="mt-6 text-amber-600 font-medium">
+            <CardDescription className="mt-6 text-amber-600 font-medium font-poppins">
               {kit.reservation}
             </CardDescription>
           </CardContent>
           <CardFooter>
             <Button 
               onClick={handleWhatsAppClick}
-              className="w-full gap-2 text-white transition-all duration-300 shadow-md bg-green-600 hover:bg-green-700 hover:shadow-lg rounded-full"
+              className="w-full gap-2 text-white transition-all duration-300 shadow-md bg-green-600 hover:bg-green-700 hover:shadow-lg rounded-full font-poppins"
             >
               <WhatsappIcon className="w-5 h-5" />
               <span className="relative">
