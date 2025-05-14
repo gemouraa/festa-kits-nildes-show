@@ -1,10 +1,13 @@
 
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
-import { Sparkle } from "lucide-react";
+import { Sparkle, Cake } from "lucide-react";
 
 const AboutSection = () => {
+  const aboutRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(aboutRef, { once: false, amount: 0.3 });
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -21,17 +24,17 @@ const AboutSection = () => {
   };
 
   return (
-    <div className="py-16 bg-gradient-to-b from-sky-50 to-white">
+    <div className="py-16 bg-gradient-to-b from-sky-50 to-white" ref={aboutRef}>
       <div className="container px-4 mx-auto">
         <motion.div
           initial="hidden"
-          animate="visible"
+          animate={isInView ? "visible" : "hidden"}
           variants={containerVariants}
           className="max-w-3xl mx-auto"
         >
           <motion.h2 
             variants={itemVariants} 
-            className="mb-8 text-3xl font-bold text-center text-sky-700 font-playfair"
+            className="mb-8 text-3xl font-bold text-center text-sky-700 font-dancing"
           >
             Sobre Nós
           </motion.h2>
@@ -59,7 +62,7 @@ const AboutSection = () => {
                   variants={itemVariants}
                   className="flex items-center p-4 my-6 space-x-3 bg-sky-100 rounded-md"
                 >
-                  <Sparkle className="flex-shrink-0 text-sky-500" />
+                  <Cake className="flex-shrink-0 text-sky-500" />
                   <p className="font-medium text-sky-800">
                     Todos os nossos kits são montados com produtos frescos, de qualidade, e com o toque artesanal 
                     que só quem ama o que faz consegue entregar.

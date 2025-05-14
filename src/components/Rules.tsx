@@ -1,6 +1,7 @@
 
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import { Cookie } from "lucide-react";
 
 const Rules = () => {
   const rules = [
@@ -15,6 +16,9 @@ const Rules = () => {
     "Não devolvemos o valor pago",
     "Troca de tema: R$30,00"
   ];
+
+  const rulesRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(rulesRef, { once: false, amount: 0.2 });
 
   const container = {
     hidden: { opacity: 0 },
@@ -32,27 +36,29 @@ const Rules = () => {
   };
 
   return (
-    <motion.div 
-      className="p-6 rounded-lg bg-gradient-to-r from-sky-50 to-purple-50"
-      variants={container}
-      initial="hidden"
-      animate="show"
-    >
-      <motion.ul className="grid gap-4 md:grid-cols-2">
-        {rules.map((rule, index) => (
-          <motion.li 
-            key={index}
-            variants={item}
-            className="flex items-start p-3 transition-all duration-300 rounded-md hover:bg-white/50"
-          >
-            <span className="flex items-center justify-center w-6 h-6 mr-3 text-xs font-bold text-white rounded-full bg-gradient-to-r from-sky-500 to-purple-500 shrink-0">
-              {index + 1}
-            </span>
-            <span className="text-gray-700">{rule}</span>
-          </motion.li>
-        ))}
-      </motion.ul>
-    </motion.div>
+    <div ref={rulesRef}>
+      <motion.div 
+        className="p-6 rounded-lg bg-gradient-to-r from-sky-50 to-purple-50"
+        variants={container}
+        initial="hidden"
+        animate={isInView ? "show" : "hidden"}
+      >
+        <motion.ul className="grid gap-4 md:grid-cols-2">
+          {rules.map((rule, index) => (
+            <motion.li 
+              key={index}
+              variants={item}
+              className="flex items-start p-3 transition-all duration-300 rounded-md hover:bg-white/50"
+            >
+              <div className="flex items-center justify-center w-6 h-6 mr-3 shrink-0">
+                <Cookie className="w-5 h-5 text-sky-500" />
+              </div>
+              <span className="text-gray-700 font-medium">{rule}</span>
+            </motion.li>
+          ))}
+        </motion.ul>
+      </motion.div>
+    </div>
   );
 };
 
