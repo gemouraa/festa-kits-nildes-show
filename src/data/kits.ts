@@ -88,18 +88,5 @@ export const kits = [
     ],
     reservation: "Reserva mediante pagamento",
     whatsappMessage: "Olá, tudo bem? Queria informações sobre o Kit 250. Como posso fazer o pedido?"
-  },
-  {
-    id: 8,
-    name: "Kit Promoção",
-    items: [
-      "Bolo massa branca, recheio brigadeiro",
-      "Sem escolha de modelo (cliente passa tema e cor)",
-      "Topo de papel simples",
-      "Entrega apenas por Uber Flash solicitado pelo cliente",
-      "Sem trocas de itens do kit"
-    ],
-    reservation: "Pagamento integral antecipado",
-    whatsappMessage: "Oi! Vi o Kit de Promoção no site da Nildes Festas e quero saber como funciona. Pode me informar?"
   }
 ];
