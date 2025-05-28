@@ -29,15 +29,8 @@ const Index = () => {
   const [activeSection, setActiveSection] = useState<FlowStep>("home");
   const [selectedKit, setSelectedKit] = useState<any>(null);
   const [clientData, setClientData] = useState<ClientData | null>(null);
-  const [welcomeVisible, setWelcomeVisible] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
   const isHeroInView = useInView(heroRef, { once: false, amount: 0.5 });
-  
-  useEffect(() => {
-    setTimeout(() => {
-      setWelcomeVisible(true);
-    }, 500);
-  }, []);
 
   const handleInstagramClick = () => {
     window.open("https://www.instagram.com/nildes_festass/", "_blank");
@@ -186,20 +179,16 @@ Telefone: ${clientData.phone}`;
 
           <div className="mb-6 sm:mb-8">
             <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-sky-400 font-poppins mb-2">
-              {welcomeVisible && (
-                <TextReveal text="Nildes Festas" delay={0.2} />
-              )}
+              <TextReveal text="Nildes Festas" delay={0.2} />
             </h1>
-            {welcomeVisible && (
-              <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1.2, delay: 0.5 }}
-                className="text-base sm:text-lg md:text-xl text-gray-600 font-poppins"
-              >
-                <TextReveal text="Onde cada detalhe é feito com carinho!" delay={0.4} />
-              </motion.p>
-            )}
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1.2, delay: 0.5 }}
+              className="text-base sm:text-lg md:text-xl text-gray-600 font-poppins"
+            >
+              <TextReveal text="Onde cada detalhe é feito com carinho!" delay={0.4} />
+            </motion.p>
           </div>
 
           <motion.div
@@ -306,7 +295,7 @@ Telefone: ${clientData.phone}`;
             transition={{ duration: 0.5 }}
           >
             <AboutSection />
-          </div>
+          </motion.div>
         )}
       </AnimatePresence>
     </div>
