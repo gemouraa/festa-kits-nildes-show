@@ -2,7 +2,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { toast } from "@/components/ui/sonner";
 import KitCards from "@/components/KitCards";
 import ClientInfoForm from "@/components/ClientInfoForm";
 import SchedulingForm from "@/components/SchedulingForm";
@@ -38,11 +37,6 @@ const Index = () => {
     setTimeout(() => {
       setWelcomeVisible(true);
     }, 500);
-
-    toast("Bem-vindo à Nildes Festas!", {
-      description: "Onde cada detalhe é feito com carinho!",
-      duration: 5000,
-    });
   }, []);
 
   const handleInstagramClick = () => {
@@ -78,11 +72,6 @@ Telefone: ${clientData.phone}`;
     setActiveSection("home");
     setSelectedKit(null);
     setClientData(null);
-    
-    toast("Redirecionando para WhatsApp!", {
-      description: "Sua mensagem foi preparada automaticamente.",
-      duration: 3000,
-    });
   };
 
   const handleBack = () => {
@@ -117,15 +106,13 @@ Telefone: ${clientData.phone}`;
 
   const TextReveal = ({ text, delay = 0 }: { text: string, delay?: number }) => {
     return (
-      <div className="overflow-hidden">
-        <motion.div
-          initial={{ y: 100 }}
-          animate={isHeroInView ? { y: 0 } : { y: 100 }}
-          transition={{ duration: 0.8, delay }}
-        >
-          {text}
-        </motion.div>
-      </div>
+      <motion.span
+        initial={{ y: 100 }}
+        animate={isHeroInView ? { y: 0 } : { y: 100 }}
+        transition={{ duration: 0.8, delay }}
+      >
+        {text}
+      </motion.span>
     );
   };
 
@@ -198,13 +185,11 @@ Telefone: ${clientData.phone}`;
           </motion.div>
 
           <div className="mb-6 sm:mb-8">
-            <div className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-sky-400 font-poppins mb-2">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-sky-400 font-poppins mb-2">
               {welcomeVisible && (
-                <div className="overflow-hidden">
-                  <TextReveal text="Nildes Festas" delay={0.2} />
-                </div>
+                <TextReveal text="Nildes Festas" delay={0.2} />
               )}
-            </div>
+            </h1>
             {welcomeVisible && (
               <motion.p
                 initial={{ opacity: 0 }}
@@ -321,7 +306,7 @@ Telefone: ${clientData.phone}`;
             transition={{ duration: 0.5 }}
           >
             <AboutSection />
-          </motion.div>
+          </div>
         )}
       </AnimatePresence>
     </div>
